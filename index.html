@@ -153,6 +153,13 @@ body * {
     font-weight: 400;
 }
 
+
+/* =========================
+   Font loading: prevent FOUT (gentle fade-in after webfonts ready)
+   ========================= */
+html { background: #fff; }
+body { opacity: 0; transition: opacity 600ms ease; }
+body.font-loaded { opacity: 1; }
 </style>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
@@ -785,6 +792,7 @@ body * {
 </style>
 </head>
 <body>
+  <noscript> </noscript>
 
     <div class="container">
         <header>
@@ -1188,6 +1196,30 @@ function handleModalKeydown(e) {
     if (e.key === 'ArrowRight') nextModalImage();
     if (e.key === 'ArrowLeft') prevModalImage();
 }
+</script>
+<script>
+  (function () {
+    function show() { document.body.classList.add('font-loaded'); }
+
+    // Never keep the page hidden too long
+    var safety = setTimeout(show, 1200);
+
+    // Prefer the Font Loading API when available
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        clearTimeout(safety);
+        show();
+      }).catch(function () {
+        clearTimeout(safety);
+        show();
+      });
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        clearTimeout(safety);
+        show();
+      });
+    }
+  })();
 </script>
 </body>
 </html>
