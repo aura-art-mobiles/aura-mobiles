@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<!--
+  Template: EDITORIAL v1.0
+  Author: Haruki Tominaga
+  License: https://amix-design.com/tominaga/eyan-theme/license 
+  © 2025 EYAN / トミナガハルキ
+-->
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <title>Aura | art mobiles studio</title>
+    <style>@font-face {
+    font-family: 'Braven';
+    src: url('./fonts/BravenRegular.woff2') format('woff2'),
+         url('./fonts/BravenRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+        /* モーダル内 作品名（CALMATO） */
+        #modal-title {
+            font-family: 'Braven', 'Cinzel', serif;
+            text-transform: none;
+        }
+
+
+/* === Braven webfont (self-hosted) === */
+@font-face {
+    font-family: 'Braven';
+    src: url('./fonts/braven-regular.woff2') format('woff2'),
+         url('./fonts/braven-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* === Bravenの“つなぎ”対策（作品名まわりだけ） === */
+.work-title,
+#modal-title,
+.text-section h2 {
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "kern" 0;
+    font-kerning: none;
+    letter-spacing: 0;
+}
+
+
+/* === 日本語フォント試験：游ゴシック === */
+body {
+    font-family: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* 日本語が入ることが多い本文/説明 */
+.hero-subtitle,
+.hero-tagline,
+.text-section,
+#modal-desc {
+    font-family: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+
+/* === 日本語キャッチコピー（確実に游ゴシック） === */
+.hero-tagline {
+    font-family: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN",
+                 "Hiragino Sans", "Meiryo", system-ui, -apple-system,
+                 "Segoe UI", sans-serif !important;
+}
+
+
+
+
+body {
+  color: var(--text-main);
+}
+
+.hero-eyebrow,
+.hero-subtitle,
+.hero-tagline,
+.text-section,
+#modal-desc {
+  color: var(--text-sub);
+}
+
+
+/* =========================
+   テキストカラー：全体 黒 → グレー（強制）
+   ========================= */
+:root {
+  --text-main: #5D5D63;   /* 基本文字 */
+  --text-sub:  #5D5D63;   /* サブテキスト */
+}
+
+/* 全体 */
+body,
+body * {
+  color: var(--text-main);
+}
+
+/* サブ・説明系は少し淡く */
+.hero-eyebrow,
+.hero-subtitle,
+.hero-tagline,
+.text-section,
+#modal-desc,
+.work-category {
+  color: var(--text-sub);
+}
+
+
+/* =========================
+   タイトル文字サイズ調整（70%）
+   ========================= */
+.main-title {
+    font-size: 70%;
+}
+
+
+
+
+
+/* =========================
+   ブランドライン：大文字＋余白強調
+   ========================= */
+.issue-no {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+
+/* =========================
+   フッターブランド：タイトルロゴと同フォント
+   ========================= */
+.footer-brand {
+    font-family: "Braven", "Braven-Regular", serif;
+    text-transform: none; /* 大文字小文字そのまま */
+    letter-spacing: 0.02em;
+}
+
+
+/* =========================
+   日本語キャッチコピー：游ゴシック（安全版）
+   ========================= */
+.hero-tagline {
+    font-family: "Yu Gothic", "YuGothic",
+                 "Hiragino Kaku Gothic ProN",
+                 "Hiragino Sans",
+                 "Meiryo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 400;
+}
+
+</style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* * =========================================
+         * カスタマイズ設定 (Design Variables)
+         * ここでサイト全体の色や基本設定を変更できます
+         * =========================================
+         */
+        :root {
+            /* 背景色 */
+            --bg-color: #fcfcfc;
+            /* 文字色 */
+            --text-color: #1a1a1a;
+            /* アクセントカラー（必要に応じて使用） */
+            --accent: #a3907a;
+        }
+
+        /* 基本スタイル設定 */
+        body {
+            font-family: 'Lato', 'Noto Serif JP', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 横スクロール防止 */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* --- ヘッダーエリア --- */
+        header {
+            min-height: 90vh;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-text {
+            z-index: 2;
+            padding-right: 2rem;
+        }
+
+        .issue-no {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid var(--text-color);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .main-title {
+            font-family: 'Braven', 'Cinzel', serif;
+
+            font-size: 6vw;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
+            padding: 0;
+            display: block;
+            word-break: break-word;
+        }
+
+        /* ヒーロー画像（メインビジュアル） */
+        .hero-img-wrap {
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #eee;
+            will-change: transform; /* アニメーション最適化 */
+            transform: translateY(0);
+        }
+
+        .bio-text {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            color: #555;
+            margin-top: 2rem;
+            max-width: 400px;
+        }
+
+        /* --- 【新規追加】テキストコンテンツエリア --- */
+        .text-section {
+            padding: 8rem 0 2rem 0; /* 上下にゆったりとした余白 */
+            max-width: 700px; /* 読みやすい幅に制限 */
+            margin: 0 auto;
+        }
+
+        .text-section h2 {
+            font-family: 'Braven', 'Cinzel', serif;
+            text-transform: none;
+
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 0.1em;
+            position: relative;
+        }
+
+        /* タイトルの下に短い装飾線を入れる */
+        .text-section h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background-color: var(--text-color);
+            margin: 1.5rem auto 0;
+        }
+
+        .text-content {
+            font-size: 1.05rem;
+            line-height: 2.4; /* 読みやすい広めの行間 */
+            color: #333;
+            text-align: justify; /* 両端揃えで雑誌のような見た目に */
+            font-feature-settings: "palt"; /* 文字詰め */
+        }
+
+        /* --- ギャラリーエリア --- */
+        .gallery-section {
+            padding: 5rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        /* 作品アイテムの基本スタイル */
+        .work-item {
+            position: relative;
+            cursor: pointer;
+            display: block;
+            
+            /* ふわっと表示されるアニメーションの初期状態 */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        /* 画面に入った時に付与されるクラス */
+        .work-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* --- グリッドレイアウトの配置調整（3列表示のためジグザグ配置は解除） --- */
+.work-img-container {
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .work-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            display: block;
+        }
+
+        /* ホバー時の画像拡大効果 */
+        .work-item:hover .work-img {
+            transform: scale(1.05);
+        }
+
+        .work-info {
+            position: absolute;
+            bottom: -2rem;
+            left: 0;
+            background: var(--bg-color);
+            padding: 1rem 2rem 0 0;
+            z-index: 1;
+        }
+
+        .work-title {
+            font-family: 'Braven', 'Cinzel', serif;
+            text-transform: none;
+
+            font-size: 1.1rem;
+            margin: 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .work-item:hover .work-title {
+            font-family: 'Braven', 'Cinzel', serif;
+            text-transform: none;
+
+            border-bottom-color: #000;
+        }
+
+        .work-cat {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* --- フッターエリア --- */
+        footer {
+            margin-top: 10rem;
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* --- モーダル（拡大表示）エリア --- */
+        .modal {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+
+    opacity: 0;
+    visibility: hidden;
+
+    /* 開く：下→上 */
+    transform: translateY(70px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0s linear 0.8s;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0s;
+}
+
+/* 閉じる：上→下（開く動きの逆） */
+.modal.closing {
+    opacity: 0;
+    transform: translateY(70px);
+}
+
+        /* 【変更】クリック機能を削除 */
+        .modal-img-area {
+            height: 100%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* cursor: pointer; は削除しました */
+            position: relative; /* サムネ/矢印の基準を画像エリアに */
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-height: 100vh;
+            transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), transform 1.8s cubic-bezier(0.22, 1, 0.36, 1), filter 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity, filter;
+            filter: blur(0);
+        }
+
+
+/* --- モーダル画像の切り替えUI --- */
+        .modal-media .is-switching-left {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.97);
+    filter: blur(10px);
+}
+.modal-media .is-switching-right {
+    opacity: 0;
+    transform: translateX(60px) scale(0.97);
+    filter: blur(10px);
+}
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(255,255,255,0.8);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease;
+    user-select: none;
+
+            z-index: 5;
+            pointer-events: auto;
+        }
+.modal-nav:hover { background: rgba(255,255,255,0.95); }
+.modal-prev { left: 1.25rem; }
+.modal-next { right: 1.25rem; }
+
+.modal-thumbs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0;
+
+    /* 画像エリア内で“画像の中心”に揃う幅 */
+    width: min(520px, 90%);
+    flex-wrap: nowrap;
+
+            z-index: 4;
+        }
+.modal-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.modal-thumb:hover { opacity: 1; transform: translateY(-1px); }
+.modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* --- モーダル内メディア（画像 / 動画） --- */
+        .modal-media {
+            width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+.modal-media .modal-img,
+.modal-media .modal-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 100vh;
+    border: none;
+    background: transparent;
+}
+.modal-media .modal-video {
+    max-height: 100vh;
+}
+
+/* 動画サムネ（再生アイコン） */
+.modal-thumb.is-video {
+    position: relative;
+}
+.modal-thumb.is-video::after {
+    content: "▶";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+    color: rgba(0,0,0,0.75);
+    background: rgba(255,255,255,0.35);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.modal-thumb.is-video:hover::after {
+    opacity: 1;
+}
+
+.modal-thumb.is-active {
+    opacity: 1;
+    transform: translateY(-4px);
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+
+        .modal-info-area {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* --- レスポンシブ対応（スマホ・タブレット） --- */
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            /* --- モーダル画像の切り替えUI（スマホ） --- */
+            .modal-nav { width: 40px; height: 40px; font-size: 1.8rem; 
+            z-index: 5;
+            pointer-events: auto;
+        }
+            .modal-prev { left: 0.75rem; }
+            .modal-next { right: 0.75rem; }
+            .modal-thumbs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0;
+
+    /* 画像エリア内で“画像の中心”に揃う幅 */
+    width: min(520px, 90%);
+    flex-wrap: nowrap;
+
+            z-index: 4;
+        }
+            .modal-thumb { width: 52px; height: 52px; }
+
+            header { grid-template-columns: 1fr; gap: 0; }
+            .main-title {
+            font-family: 'Braven', 'Cinzel', serif;
+ font-size: 3rem; margin: 0 0 1rem 0; }
+            .work-item { margin-top: 0 !important; margin-bottom: 3rem; }
+            
+            /* --- スマホ・モーダルのスクロール対応（維持） --- */
+            /* Gridをやめて縦積みにし、スクロール可能にする */
+            .modal {
+                display: block; 
+                overflow-y: auto; 
+                -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロール */
+            }
+            .modal-img-area {
+                height: auto; /* 高さをコンテンツに合わせる */
+                padding: 2rem 0;
+                min-height: 300px;
+            position: relative; /* サムネ/矢印の基準を画像エリアに */
+        }
+            .modal-img {
+                max-height: 60vh; /* 画像が高すぎないように制限 */
+                width: auto;
+                max-width: 100%;
+            transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), transform 1.8s cubic-bezier(0.22, 1, 0.36, 1), filter 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity, filter;
+            filter: blur(0);
+        }
+
+
+/* --- モーダル画像の切り替えUI --- */
+        .modal-media .is-switching-left {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.97);
+    filter: blur(10px);
+}
+.modal-media .is-switching-right {
+    opacity: 0;
+    transform: translateX(60px) scale(0.97);
+    filter: blur(10px);
+}
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(255,255,255,0.8);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease;
+    user-select: none;
+
+            z-index: 5;
+            pointer-events: auto;
+        }
+.modal-nav:hover { background: rgba(255,255,255,0.95); }
+.modal-prev { left: 1.25rem; }
+.modal-next { right: 1.25rem; }
+
+.modal-thumbs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0;
+
+    /* 画像エリア内で“画像の中心”に揃う幅 */
+    width: min(520px, 90%);
+    flex-wrap: nowrap;
+
+            z-index: 4;
+        }
+.modal-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.modal-thumb:hover { opacity: 1; transform: translateY(-1px); }
+.modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.modal-thumb.is-active {
+    opacity: 1;
+    transform: translateY(-4px);
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+            .modal-info-area {
+                height: auto;
+                padding: 2rem;
+                display: block; /* Flex中央揃えを解除して自然な流れに */
+            }
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                background: rgba(255,255,255,0.8); /* 文字と被る場合のために背景追加 */
+                padding: 0.5rem;
+                border-radius: 4px;
+            }
+            /* ------------------------------------------- */
+
+            .container { padding: 2rem 1.5rem; }
+            .hero-img-wrap { height: 50vh; margin-top: 2rem; }
+            
+            /* 新規追加エリアのスマホ対応 */
+            .text-section { padding: 4rem 1rem; }
+            .text-content { text-align: left; }
+
+            /* スマホ時のフッターリンク崩れ修正 */
+            .social-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* モーダル内 作品名（CALMATO） */
+        #modal-title {
+            font-family: 'Braven', 'Cinzel', serif;
+            text-transform: none;
+        }
+
+
+/* === Braven webfont (self-hosted) === */
+@font-face {
+    font-family: 'Braven';
+    src: url('./fonts/braven-regular.woff2') format('woff2'),
+         url('./fonts/braven-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-text">
+                <span class="issue-no">KINETIC&nbsp;&nbsp;ART&nbsp;&nbsp;MOBILES</span>
+                <h1 id="user-name" class="main-title"></h1>
+                <p id="user-role" style="font-style: italic; color: #666;"></p>
+                <div id="user-bio" class="bio-text"></div>
+            </div>
+            <div class="hero-img-wrap">
+                <img src="image/main.jpg" 
+                     class="hero-img" 
+                     alt="Hero Image"
+                     onerror="this.src='https://placehold.co/800x1000/e0e0e0/ffffff?text=Main+Visual'">
+            </div>
+        </header>
+
+        <section class="text-section">
+            <h2 id="free-text-title"></h2>
+            <div id="free-text-body" class="text-content"></div>
+        </section>
+        <section class="gallery-section">
+            <div id="gallery-grid" class="gallery-grid">
+                </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo"><span class="footer-brand">Aura</span></div>
+            <ul id="link-list" class="social-links">
+                </ul>
+            <p style="margin-top: 2rem; font-size: 0.75rem; color: #999;">
+                &copy; <span id="year"></span> <span id="footer-name"></span>
+            </p>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-img-area">
+            
+            <button class="modal-nav modal-prev" type="button" onclick="prevModalImage()" aria-label="Previous image">‹</button>
+            <div id="modal-media" class="modal-media"></div>
+            <button class="modal-nav modal-next" type="button" onclick="nextModalImage()" aria-label="Next image">›</button>
+            <div id="modal-thumbs" class="modal-thumbs" aria-label="Image thumbnails"></div>
+        
+        </div>
+        <div class="modal-info-area">
+            <button class="modal-close" onclick="closeModal()">Close</button>
+            <h2 id="modal-title" style="font-size: 2.5rem; margin-bottom: 1rem;"></h2>
+            <p id="modal-cat" style="color: #888; margin-bottom: 2rem;"></p>
+            <p id="modal-desc" style="line-height: 1.9; color: #555;"></p>
+        </div>
+    </div>
+
+    <script>
+        /* * =========================================
+         * ▼▼▼ ユーザー設定エリア（ここを変更してください） ▼▼▼
+         * =========================================
+         */
+        const config = {
+    // あなたの名前（改行タグ<br>使用可能）
+    name: "Aura mobiles",
+
+    // フッターのコピーライト用ネーム（改行なし推奨）
+    copyrightName: "Aura mobiles",
+
+    // 肩書き
+    role: "Japanese crafted mobiles",
+
+    // 自己紹介文（ヘッダー用・短め）
+    bio: "風が奏でる「ゆらぎ」のかたち",
+
+    // フリーテキスト（長文用）
+    freeText: {
+        title: "Philosophy", // セクションのタイトル
+        body: `
+            Aura（アウラ）は、ラテン語で “そよ風” を意味します。<br>
+            風にそっと触れられたときにだけ生まれるゆらぎ。<br>
+            その一瞬の美しさを、生活の中にそっと宿す存在でありたい。<br>
+            そんな想いから、このブランドは生まれました。<br><br>
+
+            Aura のモビールが大切にしているのは、<br>
+            “今、ここに流れる時間そのもの” を楽しむ豊かさです。<br><br>
+
+            忙しさに追われる日々の中で、<br>
+            Aura のモビールが「何もしない贅沢」を思い出すきっかけになれたら、<br>
+            それほど嬉しいことはありません。
+        `
+    },
+
+    // SNSなどのリンク設定
+    links: [
+        { label: "Instagram", url: "https://www.instagram.com/aura_art_mobiles_studio/" },
+        { label: "Shop (minne)", url: "https://minne.com/@aura-mobiles" },
+        { label: "Email", url: "mailto:aura.mobiles.studio@gmail.com" }
+    ]
+,
+// 作品データ（各作品に画像を複数登録できます）
+// 画像は "image/..." のパスで指定してください
+works: [
+                    {
+                    title: "calmato",
+                    category: "Mobile",
+                    media: [
+    { type: "image", src: "image/image1-1.jpg" },
+    { type: "image", src: "image/image1-2.jpg" },
+    { type: "image", src: "image/image1-3.jpg" },
+    { type: "video", src: "video/video1.mp4", thumb: "image/image1-3.jpg" }
+],
+
+                    description: `calmato（穏やかに）<br><br>
+幾何学モチーフとステンレスワイヤーを組み合わせた、<br>
+モダンなデザインのモビールです。<br><br>
+素材 / ステンレス・紙・テグス<br>
+サイズ / 横約60cm 縦約70cm（平置き・トップ糸の長さ含まず）`
+                },
+                    {
+                    title: "misterioso",
+                    category: "Mobile",
+                    media: [
+                        { type: "image", src: "image/image2-1.jpg" },
+                        { type: "image", src: "image/image2-2.jpg" },
+                        { type: "image", src: "image/image2-3.jpg" },
+                        { type: "video", src: "video/video2.mp4", thumb: "image/image2-3.jpg" }
+                    ],
+                    description: `misterioso（神秘的に）<br><br>
+ここに作品の紹介文を入れてください。<br><br>
+素材 / ーーー<br>
+サイズ / ーーー`
+                }
+                // ↑必要に応じて追加（imagesは1枚でもOK）
+]
+
+        };
+
+        // 表示する画像の最大枚数 (image1.jpg 〜 image18.jpg まで対応)
+        const MAX_IMAGES = 18;
+
+        /* * =========================================
+         * ▲▲▲ 設定エリア終了 ▲▲▲
+         * 以下はプログラムロジックのため、変更不要です
+         * =========================================
+         */
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // プロフィールの反映
+            document.getElementById('user-name').innerHTML = config.name;
+            document.getElementById('user-role').textContent = config.role;
+            document.getElementById('user-bio').innerHTML = config.bio;
+            
+            // フリーテキストの反映
+            document.getElementById('free-text-title').innerHTML = config.freeText.title;
+            document.getElementById('free-text-body').innerHTML = config.freeText.body;
+
+            // コピーライト（年号と名前）の反映
+            document.getElementById('year').textContent = new Date().getFullYear();
+            document.getElementById('footer-name').textContent = config.copyrightName;
+
+            
+// ギャラリーの自動生成
+const grid = document.getElementById('gallery-grid');
+
+// スクロール連動アニメーションの監視設定
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// 作品データ：config.works があればそれを使い、無ければ従来の image1.jpg〜 を自動生成
+const works = Array.isArray(config.works) && config.works.length
+    ? config.works
+    : Array.from({ length: MAX_IMAGES }, (_, idx) => {
+        const i = idx + 1;
+        return {
+            title: `Work No.${String(i).padStart(2, '0')}`,
+            category: "Portfolio",
+            images: [`image/image${i}.jpg`]
+        };
+    });
+
+/* チラつき防止のため、画像をJSで生成・確認してから表示するロジック */
+works.forEach((work, workIndex) => {
+    const coverPath = (work.media && work.media.length) ? work.media[0].src : ((work.images && work.images.length) ? work.images[0] : null);
+    if (!coverPath) return;
+
+    // 親要素（.work-item）を作成するが、最初は非表示にしておく
+    const div = document.createElement('div');
+    div.className = 'work-item';
+    div.style.display = 'none'; // 読み込み完了まで隠す
+
+    div.innerHTML = `
+        <div class="work-img-container"></div>
+        <div class="work-info">
+            <h3 class="work-title">${work.title}</h3>
+            <span class="work-cat">${work.category || ""}</span>
+        </div>
+    `;
+
+    grid.appendChild(div);
+
+    // カバー画像の読み込みテスト
+    const img = new Image();
+    img.src = coverPath;
+    img.className = 'work-img';
+    img.alt = work.title;
+
+    img.onload = () => {
+        div.querySelector('.work-img-container').appendChild(img);
+        div.style.display = 'block';
+
+        // クリックでモーダル（複数画像対応）
+        div.onclick = () => openModal((work.media && work.media.length) ? work.media : work.images, work.title, work.category || "", work.description || "");
+
+        observer.observe(div);
+    };
+
+    img.onerror = () => {
+        div.remove();
+    };
+});
+
+// フッターリンクの生成
+
+            const linkList = document.getElementById('link-list');
+            config.links.forEach(link => {
+                linkList.innerHTML += `<li><a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label}</a></li>`;
+            });
+
+            // メイン画像のパララックス効果
+            const heroImg = document.querySelector('.hero-img');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (scrollY < window.innerHeight) {
+                    heroImg.style.transform = `translateY(${scrollY * 0.2}px)`;
+                }
+            });
+        });
+
+        
+
+// モーダル操作関数（画像 / 動画 対応）
+const modal = document.getElementById('modal');
+let modalMedia = []; // {type:'image'|'video', src:'...', thumb?:'...'}
+let modalIndex = 0;
+
+function normalizeMedia(input) {
+    // 旧: images: ["..."] を渡された場合にも対応
+    if (!input) return [];
+    if (Array.isArray(input) && input.length && typeof input[0] === 'string') {
+        return input.map(src => ({ type: 'image', src }));
+    }
+    if (Array.isArray(input)) return input;
+    // 単体
+    if (typeof input === 'string') return [{ type: 'image', src: input }];
+    return [];
+}
+
+function clearMediaArea() {
+    const area = document.getElementById('modal-media');
+    if (!area) return;
+    // もし video があれば停止
+    const v = area.querySelector('video');
+    if (v) {
+        try { v.pause(); } catch (e) {}
+        v.removeAttribute('src');
+    }
+    area.innerHTML = '';
+}
+
+function renderCurrentMedia() {
+    const area = document.getElementById('modal-media');
+    if (!area) return;
+    clearMediaArea();
+
+    const item = modalMedia[modalIndex];
+    if (!item) return;
+
+    if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.className = 'modal-video';
+        video.controls = true;
+        video.muted = true;      // 音が勝手に鳴らない
+        video.playsInline = true; // iOSで全画面にしない
+        video.preload = 'metadata';
+        video.src = item.src;
+        area.appendChild(video);
+    } else {
+        const img = document.createElement('img');
+        img.className = 'modal-img';
+        img.alt = 'modal image';
+        img.src = item.src;
+        area.appendChild(img);
+    }
+}
+
+function renderModalThumbs() {
+    const thumbs = document.getElementById('modal-thumbs');
+    if (!thumbs) return;
+    thumbs.innerHTML = '';
+
+    modalMedia.forEach((it, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'modal-thumb' + (idx === modalIndex ? ' is-active' : '') + (it.type === 'video' ? ' is-video' : '');
+        btn.onclick = () => setModalMedia(idx);
+
+        const im = document.createElement('img');
+        im.alt = `thumb ${idx + 1}`;
+
+        // 動画は thumb があればそれ、なければ透明プレースホルダ
+        if (it.type === 'video') {
+            im.src = it.thumb || 'https://placehold.co/120x120/eaeaea/999999?text=Video';
+        } else {
+            im.src = it.src;
+        }
+
+        btn.appendChild(im);
+        thumbs.appendChild(btn);
+    });
+
+    const showUI = modalMedia.length > 1;
+    document.querySelector('.modal-prev')?.style.setProperty('display', showUI ? 'grid' : 'none');
+    document.querySelector('.modal-next')?.style.setProperty('display', showUI ? 'grid' : 'none');
+    thumbs.style.display = showUI ? 'flex' : 'none';
+}
+
+function setModalMedia(idx) {
+    if (!modalMedia.length) return;
+
+    const nextIndex = (idx + modalMedia.length) % modalMedia.length;
+
+    // 方向判定（左右スライド用）
+    const goingRight = nextIndex > modalIndex || (modalIndex === modalMedia.length - 1 && nextIndex === 0);
+    const leftClass = 'is-switching-left';
+    const rightClass = 'is-switching-right';
+
+    // 今表示中の要素（img/video）にモーションをかけたいので、エリア内の要素を対象にする
+    const area = document.getElementById('modal-media');
+    const activeEl = area?.firstElementChild;
+
+    if (activeEl) {
+        activeEl.classList.remove(leftClass, rightClass);
+        activeEl.classList.add(goingRight ? rightClass : leftClass);
+    }
+
+    modalIndex = nextIndex;
+
+    // サムネ更新（選択中を浮かせる）
+    renderModalThumbs();
+
+    // アニメーション用に2フレーム待ってから差し替え
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            renderCurrentMedia();
+            const newEl = document.getElementById('modal-media')?.firstElementChild;
+            if (newEl) {
+                // 新要素は最初switching状態からスタート → 次フレームで解除
+                newEl.classList.add(goingRight ? rightClass : leftClass);
+                requestAnimationFrame(() => newEl.classList.remove(leftClass, rightClass));
+            }
+        });
+    });
+}
+
+function nextModalImage() { setModalMedia(modalIndex + 1); }
+function prevModalImage() { setModalMedia(modalIndex - 1); }
+
+function openModal(media, title, category, description) {
+    modalMedia = normalizeMedia(media);
+    modalIndex = 0;
+
+    document.getElementById('modal-title').textContent = title || '';
+    document.getElementById('modal-cat').textContent = category || '';
+    
+document.getElementById('modal-desc').innerHTML = description || '';
+renderCurrentMedia();
+    renderModalThumbs();
+
+    modal.classList.add('active');
+    document.addEventListener('keydown', handleModalKeydown);
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    clearMediaArea();
+    document.removeEventListener('keydown', handleModalKeydown);
+}
+
+function handleModalKeydown(e) {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') nextModalImage();
+    if (e.key === 'ArrowLeft') prevModalImage();
+}
+</script>
+</body>
+</html>
